@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: none;
+}
+
+#titulo {
+  text-align: center;
+  font-size: 70px;
+}
+
+#pridiv {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.paragrafo {
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+.caixatxt {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.button {
+  margin-left: 30px;
+  font-size: 20px;
+}
