@@ -3,20 +3,26 @@ let mensagem = document.getElementById("valida");
 let imabanido = document.createElement("img");
 
 function validar() {
-  let teste = String(cpf.value);
+  let valor = String(cpf.value).replace(".", "");
+  valor = valor.replace(".", "");
+  valor = valor.replace("-", "");
   var valida = new Array();
   var compara = new Array();
-  for (let i = 0; i < teste.length; i++) {
-    valida.push(Number(teste[i]));
-    compara.push(Number(teste[i]));
+  var ver = false;
+  for (let i = 0; i < valor.length; i++) {
+    valida.push(Number(valor[i]));
+    compara.push(Number(valor[i]));
   }
   compara.pop();
   compara.pop();
   compara.push(digito(1, compara));
   compara.push(digito(0, compara));
-  console.log(compara.length);
-
-  if (JSON.stringify(compara) == JSON.stringify(valida)) {
+  for (let i = 0; i < compara.length; i++) {
+    if (i != 0 && compara[i] != compara[i - 1]) {
+      ver = true;
+    }
+  }
+  if (ver == true && JSON.stringify(compara) == JSON.stringify(valida)) {
     mensagem.innerHTML = "Documento válido";
     document.body.style.backgroundColor = "#33FF33";
     imabanido.src = "../pica-pau/img/ednaldodesbanido.png";
@@ -49,4 +55,16 @@ function limpar() {
   mensagem.innerHTML = "";
   cpf.value = "";
   imabanido.src = "";
+}
+
+function marcacao() {
+  let valor = String(cpf.value);
+  if (typeof valor.charAt(valor.length - 1) === String) {
+    valor.replace(valor.charAt(valor.length - 1), "");
+  }
+  if (valor.length === 3 || valor.length === 7) {
+    cpf.value = valor + ".";
+  } else if (valor.length === 11) {
+    cpf.value = valor + "-";
+  }
 }
