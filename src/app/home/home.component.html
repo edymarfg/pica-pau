@@ -1,0 +1,18 @@
+<div id="tudo">
+  <h1 id="titulo">Valida CPF</h1>
+  <img id="imagem" src="" alt="" />
+  <div id="pridiv">
+    <p class="paragrafo">Digite seu cpf:</p>
+    <input
+      [(ngModel)]="cpf"
+      class="caixatxt"
+      type="text"
+      placeholder="CPF"
+      maxlength="14"
+      (input)="marcacao()"
+    />
+    <p class="paragrafo" id="mensagem">{{ mensagem }}</p>
+    <button class="button" (click)="validar()">validar</button>
+    <button class="button" (click)="limpar()">limpar</button>
+  </div>
+</div>
