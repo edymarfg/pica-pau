@@ -1,12 +1,17 @@
-import { HtmlParser } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-cpf',
+  templateUrl: './cpf.component.html',
+  styleUrls: ['./cpf.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class CpfComponent implements OnInit {
   cpf: string = '';
   mensagem: string = '';
   imabanido = document.createElement('img');
@@ -34,7 +39,7 @@ export class HomeComponent implements OnInit {
         ver = true;
       }
     }
-    if (ver === true && JSON.stringify(compara) === JSON.stringify(valida)) {
+    if (ver == true && JSON.stringify(compara) == JSON.stringify(valida)) {
       this.mensagem = 'DOCUMENTO VÁLIDO';
       document.body.style.backgroundColor = '#33FF33';
       this.imabanido.src = '../assets/ednaldodesbanido.png';

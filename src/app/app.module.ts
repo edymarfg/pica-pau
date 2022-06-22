@@ -1,3 +1,8 @@
+import { FarmaceuticoModule } from './farmaceutico/farmaceutico.module';
+import { FornecedorModule } from './fornecedor/fornecedor.module';
+import { CpfModule } from './cpf/cpf.module';
+import { MenuModule } from './menu/menu.module';
+import { ClienteModule } from './cliente/cliente.module';
 import { SobreModule } from './sobre/sobre.module';
 import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
@@ -8,7 +13,17 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeModule, SobreModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HomeModule,
+    SobreModule,
+    ClienteModule,
+    MenuModule,
+    CpfModule,
+    FornecedorModule,
+    FarmaceuticoModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
