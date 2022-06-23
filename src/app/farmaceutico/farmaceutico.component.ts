@@ -15,7 +15,6 @@ export class FarmaceuticoComponent implements OnInit {
   formFarmaceutico: FormGroup = this.formBuilder.group({
     nome: new FormControl(null, [Validators.required, Validators.minLength(2)]),
     cpf: new FormControl(null, [Validators.required, Validators.minLength(11)]),
-    email: new FormControl(null, [Validators.required, Validators.email]),
     niver: new FormControl(null, [Validators.required]),
   });
 
