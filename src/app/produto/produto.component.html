@@ -1,0 +1,20 @@
+<div class="box">
+  <h1 class="titulo">Cadastro de Produto</h1>
+  <form class="form-box" [formGroup]="formProduto" (ngSubmit)="cadastrar()">
+    <input
+      formControlName="nome"
+      placeholder="Nome"
+      type="text"
+      maxlength="64"
+    />
+    <input
+      formControlName="valor"
+      placeholder="Valor"
+      type="text"
+      maxlength="32"
+    />
+    <button (click)="som()" type="submit">Cadastrar</button>
+  </form>
+  <p>Result: {{ formProduto.getRawValue() | json }}</p>
+  <p>Form é valido? {{ formProduto.valid ? "Sim" : "Não" }}</p>
+</div>

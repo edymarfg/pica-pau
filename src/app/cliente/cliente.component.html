@@ -1,6 +1,6 @@
 <div class="box">
-  <p id="titulo">Cadastro de Cliente</p>
-  <form class="form-box" [formGroup]="formCliente" (ngSubmit)="cadastrar()">
+  <h1 class="titulo">Cadastro de Cliente</h1>
+  <form class="form-box" [formGroup]="form" (ngSubmit)="cadastrar()">
     <input
       formControlName="nome"
       placeholder="Nome"
@@ -19,8 +19,26 @@
       placeholder="Data de Nascimento"
       type="date"
     />
-    <button type="submit">Cadastrar</button>
+    <button type="submit" [disabled]="!form.valid">Cadastrar</button>
   </form>
-  <p>Result: {{ formCliente.getRawValue() | json }}</p>
-  <p>Form é valido? {{ formCliente.valid ? "Sim" : "Não" }}</p>
+  <table class="tabela">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>CPF</th>
+      <th>Data de Nascimento</th>
+      <th>Idade</th>
+      <th>Documento Válido</th>
+    </tr>
+    <tr *ngFor="let cliente of list">
+      <td>{{ cliente.id }}</td>
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.documento }}</td>
+      <td>{{ cliente.niver | date: "dd/MM/yyyy" }}</td>
+      <td>{{ cliente.idade }}</td>
+      <td>{{ cliente.documentoValido }}</td>
+    </tr>
+  </table>
 </div>

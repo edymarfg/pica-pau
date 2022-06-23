@@ -1,3 +1,4 @@
+import { ProdutoModule } from './produto/produto.module';
 import { FarmaceuticoModule } from './farmaceutico/farmaceutico.module';
 import { FornecedorModule } from './fornecedor/fornecedor.module';
 import { CpfModule } from './cpf/cpf.module';
@@ -23,6 +24,7 @@ import { AppComponent } from './app.component';
     CpfModule,
     FornecedorModule,
     FarmaceuticoModule,
+    ProdutoModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

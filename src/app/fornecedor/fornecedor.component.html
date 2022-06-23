@@ -1,5 +1,5 @@
 <div class="box">
-  <p id="titulo">Cadastro de Fornecedor</p>
+  <h1 class="titulo">Cadastro de Fornecedor</h1>
   <form class="form-box" [formGroup]="formFornecedor" (ngSubmit)="cadastrar()">
     <input
       formControlName="nome"
@@ -12,12 +12,6 @@
       placeholder="CNPJ"
       type="text"
       maxlength="18"
-    />
-    <input
-      formControlName="email"
-      placeholder="E-mail"
-      type="email"
-      maxlength="64"
     />
     <input
       formControlName="niver"

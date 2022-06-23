@@ -1,3 +1,4 @@
+import { ProdutoComponent } from './produto/produto.component';
 import { FarmaceuticoComponent } from './farmaceutico/farmaceutico.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { CpfComponent } from './cpf/cpf.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cpf', component: CpfComponent },
   { path: 'fornecedor', component: FornecedorComponent },
   { path: 'farmaceutico', component: FarmaceuticoComponent },
+  { path: 'produto', component: ProdutoComponent },
 ];
 
 @NgModule({
