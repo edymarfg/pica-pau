@@ -21,22 +21,26 @@
       Cadastrar
     </button>
   </form>
+  <button class="cadRan" (click)="cegonha()">Cadastro Random</button>
+  <p>Farmacêuticos</p>
   <table class="tabela">
     <tr>
-      <th>ID</th>
       <th>Nome</th>
       <th>CPF</th>
       <th>Data de Nascimento</th>
       <th>Idade</th>
       <th>Documento Válido</th>
+      <th>Ações</th>
     </tr>
     <tr *ngFor="let farmaceutico of list">
-      <td>{{ farmaceutico.id }}</td>
       <td>{{ farmaceutico.nome }}</td>
       <td>{{ farmaceutico.documento }}</td>
       <td>{{ farmaceutico.niver | date: "dd/MM/yyyy" }}</td>
       <td>{{ farmaceutico.idade }}</td>
       <td>{{ farmaceutico.documentoValido }}</td>
+      <td>
+        <button (click)="remover(farmaceutico)">Remover</button>
+      </td>
     </tr>
   </table>
 </div>

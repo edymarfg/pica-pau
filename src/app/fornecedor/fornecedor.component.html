@@ -1,6 +1,6 @@
 <div class="box">
   <h1 class="titulo">Cadastro de Fornecedor</h1>
-  <form class="form-box" [formGroup]="formFornecedor" (ngSubmit)="cadastrar()">
+  <form class="form-box" [formGroup]="form" (ngSubmit)="cadastrar()">
     <input
       formControlName="nome"
       placeholder="Nome"
@@ -20,6 +20,28 @@
     />
     <button type="submit">Cadastrar</button>
   </form>
-  <p>Result: {{ formFornecedor.getRawValue() | json }}</p>
-  <p>Form é valido? {{ formFornecedor.valid ? "Sim" : "Não" }}</p>
+  <hr />
+  <button class="cadRan" (click)="cegonha()">Cadastro Random</button>
+  <p>Fornecedores</p>
+  <table class="tabela">
+    <tr>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>CNPJ Válido</th>
+      <th>Data de Nascimento</th>
+      <th>Idade</th>
+      <th>Ações</th>
+    </tr>
+    <tr *ngFor="let item of fornecedores">
+      <td>{{ item.nome }}</td>
+      <td>{{ item.documento }}</td>
+      <td>{{ item.documentoValido }}</td>
+      <td>{{ item.niver | date: "dd/MM/yyyy" }}</td>
+      <td>{{ item.idade }}</td>
+      <td>
+        <button>Editar</button>
+        <button (click)="remover(item)">Remover</button>
+      </td>
+    </tr>
+  </table>
 </div>

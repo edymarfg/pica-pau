@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PedidoModule } from './pedido/pedido.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { AppComponent } from './app.component';
     FornecedorModule,
     FarmaceuticoModule,
     ProdutoModule,
+    PedidoModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -30,6 +30,7 @@
       <th>Data de Nascimento</th>
       <th>Idade</th>
       <th>Documento Válido</th>
+      <th>Ações</th>
     </tr>
     <tr *ngFor="let cliente of list">
       <td>{{ cliente.id }}</td>
@@ -39,6 +40,10 @@
       <td>{{ cliente.niver | date: "dd/MM/yyyy" }}</td>
       <td>{{ cliente.idade }}</td>
       <td>{{ cliente.documentoValido }}</td>
+      <td>
+        <button (click)="editar(cliente)">Editar</button>
+        <button (click)="remover(cliente)">Remover</button>
+      </td>
     </tr>
   </table>
 </div>

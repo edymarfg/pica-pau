@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import { Farmaceutico } from '../domain/farmaceutico';
 import { FarmaceuticoModel } from '../model/farmaceutico-model';
+import { FarmaceuticoService } from '../service/farmaceutico.service';
 
 @Component({
   selector: 'app-farmaceutico',
@@ -24,31 +25,33 @@ export class FarmaceuticoComponent implements OnInit {
     niver: new FormControl(null, [Validators.required]),
   });
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder, private farmaceuticoService: FarmaceuticoService) {}
 
   ngOnInit(): void {
-    this.get().subscribe((domains: Farmaceutico[]) => {
-      this.list = domains;
-    });
+    this.consultar();
   }
 
   cadastrar(): void {
-    const farmaceuticoModel: FarmaceuticoModel =
-      this.formFarmaceutico.getRawValue();
-    this.post(farmaceuticoModel).subscribe((domain: Farmaceutico) => {
-      if (domain.id) {
-        this.list.push(domain);
-      }
+
+  }
+
+  cegonha(): void {
+    this.farmaceuticoService.cegonha().subscribe(() => {
+      this.consultar();
     });
   }
 
-  private post(model: FarmaceuticoModel): Observable<Farmaceutico> {
-    const url = 'http://localhost:8080/farmaceutico/cadastrar';
-    return this.http.post<Farmaceutico>(url, model);
+  remover(fornecedor: Farmaceutico): void {
+    this.farmaceuticoService.excluir(fornecedor.id).subscribe(() => {
+      this.consultar();
+    });
   }
 
-  private get(): Observable<Farmaceutico[]> {
-    const url = 'http://localhost:8080/farmaceutico/consultar';
-    return this.http.get<Farmaceutico[]>(url);
+  private consultar(): void {
+    this.farmaceuticoService
+      .consultar()
+      .subscribe((mafalda: Farmaceutico[]) => {
+        this.list = mafalda;
+      });
   }
 }
