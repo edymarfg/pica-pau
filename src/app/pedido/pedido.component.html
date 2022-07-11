@@ -45,7 +45,9 @@
         >
           Add Produto
         </button>
-        <button *ngIf="item.status === 'PENDENTE'">Pagar</button>
+        <button *ngIf="item.status === 'PENDENTE'" (click)="pagar(item)">
+          Pagar
+        </button>
         <button>Detalhes</button>
       </td>
     </tr>

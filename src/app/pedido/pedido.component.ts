@@ -58,7 +58,7 @@ export class PedidoComponent implements OnInit {
 
   private consultarClientes(): void {
     this.clienteService.consultar().subscribe((x) => {
-      this.clientes = x;
+      //this.clientes = x;
     });
   }
 
@@ -85,6 +85,14 @@ export class PedidoComponent implements OnInit {
           this.resetForm();
         });
     }
+  }
+
+  pagar(pedido: Pedido): void {
+    let valor = 0.0;
+    pedido.produtos.forEach((p) => {
+      valor += p.valor;
+    });
+    this.pedidoService.pagar(pedido.id, valor);
   }
 
   clickAddProduto(pedido: Pedido) {
