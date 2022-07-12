@@ -5,26 +5,34 @@ import { Farmaceutico } from '../domain/farmaceutico';
 import { FarmaceuticoModel } from '../model/farmaceutico-model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FarmaceuticoService {
   url = 'http://localhost:8080/farmaceutico/';
 
   constructor(private http: HttpClient) {}
 
-  cadastrar(model: FarmaceuticoModel): Observable<Farmaceutico> {
-    return this.http.post<Farmaceutico>(this.url + 'cadastrar', model);
+  cadastrar(model: FarmaceuticoModel): Observable<FarmaceuticoModel> {
+    return this.http.post<FarmaceuticoModel>(this.url + 'cadastrar', model);
   }
 
-  cegonha(): Observable<Farmaceutico> {
-    return this.http.post<Farmaceutico>(this.url + 'cadastrar-random', {});
+  cegonha(): Observable<FarmaceuticoModel> {
+    return this.http.post<FarmaceuticoModel>(this.url + 'cadastrar-random', {});
   }
 
-  consultar(): Observable<Farmaceutico[]> {
-    return this.http.get<Farmaceutico[]>(this.url + 'consultar');
+  alterar(model: FarmaceuticoModel): Observable<FarmaceuticoModel> {
+    return this.http.put<FarmaceuticoModel>(this.url + 'alterar', model);
   }
 
-  excluir(id: string): Observable<Farmaceutico> {
-    return this.http.delete<Farmaceutico>(this.url + 'remover/' + id);
+  consultar(): Observable<FarmaceuticoModel[]> {
+    return this.http.get<FarmaceuticoModel[]>(this.url + 'consultar');
+  }
+
+  consultarPorId(id: string): Observable<FarmaceuticoModel[]> {
+    return this.http.get<FarmaceuticoModel[]>(this.url + 'consultar/' + id);
+  }
+
+  excluir(id: string): Observable<FarmaceuticoModel> {
+    return this.http.delete<FarmaceuticoModel>(this.url + 'remover/' + id);
   }
 }

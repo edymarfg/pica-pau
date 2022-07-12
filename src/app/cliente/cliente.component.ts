@@ -7,7 +7,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Cliente } from '../domain/cliente';
 import { ClienteModel } from '../model/cliente-model';
 import { ClienteService } from '../service/cliente.service';
 
